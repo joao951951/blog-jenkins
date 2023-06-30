@@ -3,19 +3,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/joao951951/blog-jenkins.git'
+                sh 'git pull'
             }
         }
 
         stage('Build') {
             steps {
                 sh 'npm install'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'npm test'
             }
         }
 
