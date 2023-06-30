@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('clone') {
+            steps {
+                sh 'git clone https://github.com/joao951951/blog-jenkins.git'
+            }
+        }
         stage('Checkout') {
             steps {
                 sh 'git pull'
