@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/joao951951/blog-jenkins.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Notification') {
+            steps {
+                emailext body: 'A pipeline do blog foi concluída com sucesso!',
+                    subject: 'Notificação de Pipeline - Blog',
+                    to: 'joao159@edu.unifil.br'
+            }
+        }
+    }
+}
