@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                sh 'git pull'
+                git 'https://github.com/joao951951/blog-jenkins.git'
             }
         }
 
