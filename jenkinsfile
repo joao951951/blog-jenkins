@@ -3,12 +3,9 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                dir('C:\xampp\htdocs'){
                 sh 'git clone https://github.com/joao951951/blog-jenkins.git'
                 }
             }
-        }
-
         stage('Notification') {
             steps {
                 emailext body: 'A pipeline do blog foi concluída com sucesso!',
