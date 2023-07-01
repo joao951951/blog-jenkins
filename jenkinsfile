@@ -7,12 +7,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
         stage('Notification') {
             steps {
                 emailext body: 'A pipeline do blog foi concluída com sucesso!',
